@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-purple-500">
+    <header>
+        <h1 class="text-4xl text-center pt-11 font-bold bg-purple-500 text-white">Welcome To Internet Banking</h1>
+    </header>
+    <main>
+        <div class="m-auto w-2/4 mt-20 shadow-2xl p-10 bg-white rounded-lg">
+            <h3 class="text-3xl font-bold text-purple-500">Please Login</h3>
+            <input class="w-full ggg border-purple-500 border-2 mt-5 px-2 rounded text-lg py-2" type="email" id="userEmail" placeholder="Enter Your Email">
+            <strong id="usernameRequired">Username is required</strong>
+            <input class="w-full dddd border-purple-500 border-2 mt-5 px-2 rounded text-lg py-2" type="password" id="userPwd" placeholder="Enter Your Password">
+            <strong id="pwdRequired">Password is required</strong>
+            <strong id="failedMessage">Incorrect username or password</strong>
+            <button id="loginBtn" class="bg-purple-500 py-3 px-7 rounded text-xl mt-5 text-white">Login</button>
+        </div>
+    </main>
+    
+    <!-- javascript Files -->
+    <script src="js/login.js"></script>
+</body>
+</html>
