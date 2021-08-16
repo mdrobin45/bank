@@ -17,7 +17,7 @@ passRequired.style.display = 'none';
 document.getElementById('loginBtn').addEventListener('click', function () {
     var emailInputValue = document.getElementById('userEmail').value;
     var pwdInputValue = document.getElementById('userPwd').value;
-    var email = 'robin4500bd@gmail.com';
+    var email = 'robin@gmail.com';
     var pwd = 'abc123';
     // Login Condition
     if (emailInputValue == email && pwdInputValue == pwd) {
