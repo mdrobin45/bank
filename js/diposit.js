@@ -6,9 +6,13 @@ validAmount.style.display = 'none';
 emptyDeposit.style.color = 'red';
 emptyDeposit.style.display = 'none';
 
+function getAmount(SectionId) {
+    let mainBalance = document.getElementById(SectionId);
+    return mainBalance;
+}
 
 // Deposit and Main Balance
-var mainBalance = document.getElementById('mainAmount');
+var mainBalance = getAmount('mainAmount');
 document.getElementById('depositBtn').addEventListener('click', function () {
     let userDepositAmount = Number(document.getElementById('depositInput').value);
     if (userDepositAmount > 0) {
