@@ -6,14 +6,14 @@ validAmount.style.display = 'none';
 emptyDeposit.style.color = 'red';
 emptyDeposit.style.display = 'none';
 
-function getAmount(SectionId) {
-    let mainBalance = document.getElementById(SectionId);
-    return mainBalance;
+function getElement(SectionId) {
+    let Element = document.getElementById(SectionId);
+    return Element;
 }
 
 // Deposit and Main Balance
-var mainBalance = getAmount('mainAmount');
-document.getElementById('depositBtn').addEventListener('click', function () {
+// var mainBalance = getElement('mainAmount');
+getElement('depositBtn').addEventListener('click', function () {
     let userDepositAmount = Number(document.getElementById('depositInput').value);
     if (userDepositAmount > 0) {
         if (userDepositAmount !== '') {
@@ -22,7 +22,7 @@ document.getElementById('depositBtn').addEventListener('click', function () {
             lastDeposit.innerText = userDepositAmount; // Add deposited amount to deposit section
 
             // Main Balance Count
-            mainBalance.innerText = Number(mainBalance.innerText) + Number(lastDeposit.innerText); // Update main balance section
+            getElement('mainAmount').innerText = Number(getElement('mainAmount').innerText) + Number(lastDeposit.innerText); // Update main balance section
             document.getElementById('depositInput').value = ''; // Clear input value after successful deposit
             emptyDeposit.style.display = 'none'; // Hide empty field error
         }
