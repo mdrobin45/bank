@@ -17,36 +17,34 @@ function inputValue(inputFieldId) {
 }
 
 // Deposit and Main Balance
-// var mainBalance = getElement('mainAmount');
 getElement('depositBtn').addEventListener('click', function () {
     let userDepositAmount = Number(document.getElementById('depositInput').value);
     if (userDepositAmount > 0) {
         if (userDepositAmount !== '') {
-            // Deposit Balance Count
-            // let lastDeposit = getElement('depositAmount');
-            getElement('depositAmount').innerText = userDepositAmount; // Add deposited amount to deposit section
+            // Add deposited amount to deposit section
+            getElement('depositAmount').innerText = userDepositAmount;
 
-            // Main Balance Count
-            getElement('mainAmount').innerText = Number(getElement('mainAmount').innerText) + Number(getElement('depositAmount').innerText); // Total main balance
+            // Total main balance
+            getElement('mainAmount').innerText = Number(getElement('mainAmount').innerText) + Number(getElement('depositAmount').innerText); 
 
             // Clear input value after successful deposit
             document.getElementById('depositInput').value = '';
 
             // Hide empty field error
-            emptyDeposit.style.display = 'none'; 
+            emptyDeposit.style.display = 'none';
         }
         else {
             emptyDeposit.style.display = 'block'; // Show empty field error
         }
 
         // Hide error after right input
-        validAmount.style.display = 'none'; 
+        validAmount.style.display = 'none';
     } else {
         // Show error on wrong input
-        validAmount.style.display = 'block'; 
+        validAmount.style.display = 'block';
 
         // Clear input value after wrong input
-        document.getElementById('depositInput').value = ''; 
+        document.getElementById('depositInput').value = '';
     }
 
 });
@@ -60,6 +58,7 @@ emptyFunds.style.display = 'none';
 document.getElementById('withdrawBtn').addEventListener('click', function () {
     let withdrawUserValue = Number(document.getElementById('withdrawInput').value);
     let withdrawBalance = document.getElementById('withdrawAmount');
+    let mainBalance = getElement('mainAmount');
     if (mainBalance.innerText > 0 && mainBalance.innerText > withdrawUserValue) {
         // Update withdraw amount
         withdrawBalance.innerText = withdrawUserValue; // Update withdraw balance section
@@ -70,5 +69,6 @@ document.getElementById('withdrawBtn').addEventListener('click', function () {
     } else {
         emptyFunds.style.display = 'block'; // Show Insufficient funds error
     }
-    document.getElementById('withdrawInput').value = ''; // Clear withdraw field after string error
+    // Clear withdraw field after string error
+    getElement('withdrawInput').value = '';
 });
