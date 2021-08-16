@@ -26,7 +26,7 @@ document.getElementById('depositBtn').addEventListener('click', function () {
             emptyDeposit.style.display = 'block'; // Show empty field error
         }
         validAmount.style.display = 'none'; // Hide error after right input
-    }else {
+    } else {
         validAmount.style.display = 'block'; // Show error on wrong input
         document.getElementById('depositInput').value = ''; // Clear input value after wrong input
     }
@@ -42,7 +42,7 @@ emptyFunds.style.display = 'none';
 document.getElementById('withdrawBtn').addEventListener('click', function () {
     let withdrawUserValue = Number(document.getElementById('withdrawInput').value);
     let withdrawBalance = document.getElementById('withdrawAmount');
-    if (mainBalance.innerText > 0 && mainBalance.innerText>withdrawUserValue) {
+    if (mainBalance.innerText > 0 && mainBalance.innerText > withdrawUserValue) {
         // Update withdraw amount
         withdrawBalance.innerText = withdrawUserValue; // Update withdraw balance section
 
