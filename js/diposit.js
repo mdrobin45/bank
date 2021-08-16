@@ -10,6 +10,11 @@ function getElement(SectionId) {
     let Element = document.getElementById(SectionId);
     return Element;
 }
+// Input value function
+function inputValue(inputFieldId) {
+    let values = document.getElementById(inputFieldId).value;
+    return values;
+}
 
 // Deposit and Main Balance
 // var mainBalance = getElement('mainAmount');
@@ -18,21 +23,30 @@ getElement('depositBtn').addEventListener('click', function () {
     if (userDepositAmount > 0) {
         if (userDepositAmount !== '') {
             // Deposit Balance Count
-            let lastDeposit = document.getElementById('depositAmount');
-            lastDeposit.innerText = userDepositAmount; // Add deposited amount to deposit section
+            // let lastDeposit = getElement('depositAmount');
+            getElement('depositAmount').innerText = userDepositAmount; // Add deposited amount to deposit section
 
             // Main Balance Count
-            getElement('mainAmount').innerText = Number(getElement('mainAmount').innerText) + Number(lastDeposit.innerText); // Update main balance section
-            document.getElementById('depositInput').value = ''; // Clear input value after successful deposit
-            emptyDeposit.style.display = 'none'; // Hide empty field error
+            getElement('mainAmount').innerText = Number(getElement('mainAmount').innerText) + Number(getElement('depositAmount').innerText); // Total main balance
+
+            // Clear input value after successful deposit
+            document.getElementById('depositInput').value = '';
+
+            // Hide empty field error
+            emptyDeposit.style.display = 'none'; 
         }
         else {
             emptyDeposit.style.display = 'block'; // Show empty field error
         }
-        validAmount.style.display = 'none'; // Hide error after right input
+
+        // Hide error after right input
+        validAmount.style.display = 'none'; 
     } else {
-        validAmount.style.display = 'block'; // Show error on wrong input
-        document.getElementById('depositInput').value = ''; // Clear input value after wrong input
+        // Show error on wrong input
+        validAmount.style.display = 'block'; 
+
+        // Clear input value after wrong input
+        document.getElementById('depositInput').value = ''; 
     }
 
 });
