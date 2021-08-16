@@ -49,7 +49,7 @@ document.getElementById('loginBtn').addEventListener('click', function () {
 document.getElementById('userEmail').addEventListener('keyup', function (enter) {
     var emailInputValue = document.getElementById('userEmail').value;
     var pwdInputValue = document.getElementById('userPwd').value;
-    var email = 'my.bank@gmail.com';
+    var email = 'bank@gmail.com';
     var pwd = 'abc123';
     // Login Condition
     if (enter.keyCode == 13) {
