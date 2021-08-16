@@ -42,7 +42,7 @@ emptyFunds.style.display = 'none';
 document.getElementById('withdrawBtn').addEventListener('click', function () {
     let withdrawUserValue = Number(document.getElementById('withdrawInput').value);
     let withdrawBalance = document.getElementById('withdrawAmount');
-    if (mainBalance.innerText > 0) {
+    if (mainBalance.innerText > 0 && mainBalance.innerText>withdrawUserValue) {
         // Update withdraw amount
         withdrawBalance.innerText = withdrawUserValue; // Update withdraw balance section
 
