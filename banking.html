@@ -24,24 +24,26 @@
             </div>
             <div class="bg-blue-500 p-20 rounded-lg shadow-lg">
                 <h3 class="text-3xl">Withdraw</h3>
-                <h5 class="text-2xl">$00</h5>
+                <h5 class="text-2xl">$<span id="withdrawAmount">00</span></h5>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="grid mt-36 grid-cols-2 gap-4">
             <!-- Deposit -->
-            <div class="p-20 bg-green-500">
-                <h4 class="text-2xl">Deposit Here</h4>
+            <div class="p-20 rounded-lg bg-green-500">
+                <h4 class="text-2xl">Deposit Funds</h4>
                 <input id="depositInput" placeholder="$ amount you want to deposit" class="p-2 w-full mt-6 rounded" type="text">
+                <strong id="strNotAllow">String not allowed. Please try with valid amount</strong>
                 <strong id="depositRequired">Please type amount of deposit</strong>
                 <button id="depositBtn" class="px-4 py-2 rounded bg-gray-700 text-white mt-4">Deposit</button>
             </div>
             <!-- Withdraw -->
-            <div class="p-20 bg-purple-400">
-                <h4 class="text-2xl">Withdraw Here</h4>
+            <div class="p-20 rounded-lg bg-blue-500">
+                <h4 class="text-2xl">Withdraw Funds</h4>
                 <input id="withdrawInput" placeholder="$ amount you want to withdraw" class="p-2 w-full mt-6 rounded" type="text">
-                <button class="px-4 py-2 rounded bg-pink-500 text-white mt-4">Withdraw</button>
+                <strong id="insufficientFunds">Insufficient Funds</strong>
+                <button id="withdrawBtn" class="px-4 py-2 rounded bg-gray-700 text-white mt-4">Withdraw</button>
             </div>
           </div>
     </div>
