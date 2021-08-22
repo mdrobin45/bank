@@ -15,8 +15,8 @@ function getInputValue(inputId, isWithdrawField) {
         if (inputFieldValue > 0) {
             const toNumberValue = parseFloat(inputFieldValue);
             inputField.value = '';
+            validAmount.style.display = 'none';
             return toNumberValue;
-            console.log('zero theke boro');
         }
         else if (inputField.value == '') {
             emptyDeposit.style.display = 'block';
@@ -33,18 +33,15 @@ function getInputValue(inputId, isWithdrawField) {
         inputField.value = '';
         return toNumberValue;
     }
-
-
 }
 // Update Amount
 function updateAmount(fieldId, amount, isWithdraw) {
     if (isWithdraw == false) {
-        const valueFromInput = getInputValue(fieldId);
+        // const valueFromInput = getInputValue(fieldId);
         let field = document.getElementById(fieldId);
         const fieldText = field.innerText;
         let fieldTextToNumber = parseFloat(fieldText);
         field.innerText = fieldTextToNumber + amount;
-        console.log(valueFromInput);
     }
     else {
         let withdrawField = document.getElementById(fieldId);
@@ -56,8 +53,10 @@ function updateAmount(fieldId, amount, isWithdraw) {
 // Deposit Button
 document.getElementById('depositBtn').addEventListener('click', function () {
     const amount = getInputValue('depositInput', false);
-    updateAmount('mainAmount', amount, false);
-    updateAmount('depositAmount', amount, false);
+    if (amount > 0) {
+        updateAmount('mainAmount', amount, false);
+        updateAmount('depositAmount', amount, false);
+    }
 });
 // Withdraw Button
 document.getElementById('withdrawBtn').addEventListener('click', function () {
