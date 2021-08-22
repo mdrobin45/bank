@@ -6,6 +6,9 @@ validAmount.style.display = 'none';
 emptyDeposit.style.color = 'red';
 emptyDeposit.style.display = 'none';
 
+var emptyFunds = document.getElementById('insufficientFunds'); // Insufficient funds error
+emptyFunds.style.color = 'red';
+emptyFunds.style.display = 'none';
 // Get Input Value
 function getInputValue(inputId, isWithdrawField) {
     if (isWithdrawField == false) {
@@ -28,10 +31,18 @@ function getInputValue(inputId, isWithdrawField) {
         }
     } else {
         const inputField = document.getElementById(inputId);
-        // const isNumber = typeof (inputField.value);
         const toNumberValue = parseFloat(inputField.value);
-        inputField.value = '';
-        return toNumberValue;
+        const mainFonds = document.getElementById('mainAmount').innerText;
+        if (toNumberValue <= mainFonds) {
+            const inputField = document.getElementById(inputId);
+            const toNumberValue = parseFloat(inputField.value);
+            inputField.value = '';
+            emptyFunds.style.display = 'none';
+            return toNumberValue;
+        }else{
+            emptyFunds.style.display = 'block';
+        }
+
     }
 }
 // Update Amount
@@ -61,5 +72,7 @@ document.getElementById('depositBtn').addEventListener('click', function () {
 // Withdraw Button
 document.getElementById('withdrawBtn').addEventListener('click', function () {
     const amount = getInputValue('withdrawInput', true);
-    updateAmount('withdrawAmount', amount, true);
+    if (amount > 0) {
+        updateAmount('withdrawAmount', amount, true);
+    }
 });
